@@ -1,4 +1,16 @@
 #!/bin/sh
+pkgs=('cowsay lolcat')
+install=false
+for pkg in $pkgs; do
+  status="$(dpkg-query -W --showformat='${db:Status-Status}' "$pkg" 2>&1)"
+  if [ ! $? = 0 ] || [ ! "$status" = installed ]; then
+    install=true
+    break
+  fi
+done
+if "$install"; then
+  sudo apt install $pkgs
+fi
 clear
 cowsay Leakix Searcher | lolcat
 echo "LoliC0d3 - Tegal1337" | lolcat
