@@ -1,5 +1,4 @@
 #!/bin/sh
-#boleh recode asalkan sertakan author
 clear
 cowsay Leakix Searcher | lolcat
 echo "LoliC0d3 - Tegal1337" | lolcat
